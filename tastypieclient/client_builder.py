@@ -51,8 +51,8 @@ class ClientBuilder(object):
     def generate_client(self, name):
         """Generate the client module for the base_url."""
         entry_points = self._get_entry_points()
-        resources = [Resource(self.client, name, **entry_point)
-                     for (name, entry_point) in entry_points.iteritems()]
+        resources = [Resource(self.client, entry_name, **entry_point)
+                     for (entry_name, entry_point) in entry_points.iteritems()]
         # Now we have our resources, let's write them out
         fname = '%s.py.%s' % (name, datetime.utcnow().strftime("%s"))
         with open(fname, 'w') as fp:
