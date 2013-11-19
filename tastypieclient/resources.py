@@ -62,3 +62,10 @@ class Resource(object):
                 raise ValueError("'%s' is a required kwarg" % field_name)
             setattr(self, field_name, kwargs.get(field_name, None))
         super(Resource, self).__init__()
+
+
+class Client(object):
+    def __init__(self, base_url):
+        # Map a resource to each available endpoint
+        # Support getting and slicing, etc
+        pass
